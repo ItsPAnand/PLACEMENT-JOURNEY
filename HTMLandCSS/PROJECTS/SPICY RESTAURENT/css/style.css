@@ -1,0 +1,69 @@
+:root{
+    --yellow:#FFC54D;
+    --green:#53BF9D;
+    --red:crimson;
+    --white:whitesmoke;
+}
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.landing{
+    background-image: url("/PROJECTS/SPICY RESTAURENT/media/background.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    color: var(--white);
+}
+
+header a{
+    text-decoration: none;
+    color: var(--yellow);
+}
+header{
+    display: flex;
+    padding: 1em;
+}
+#logo{
+    flex:3;
+    font-size: 1.5em;
+}
+nav{
+    flex: 2;
+    display: flex;
+}
+
+nav a{
+    flex: 1;
+}
+nav a:hover{
+    color: var(--green);
+}
+.maintext{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: center;
+    padding: 2em;
+}
+.tagline1{
+    font-size: 2.5em;
+    color: var(--red);
+    font-weight: bolder;
+}
+.tagline2{
+    color: var(--yellow);
+}
+.maintext div{
+    margin: 0.7em;
+}
+.maintext button{
+    width: 20vw;
+    margin-top: 2em;
+    border-radius: 50px;
+    background-color: var(--green);
+    padding: 0.7em;
+    color: var(--white);
+    border: 1px solid var(--green);
+}

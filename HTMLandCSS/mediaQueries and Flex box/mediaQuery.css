@@ -1,0 +1,49 @@
+.outerBox{
+    background-color: rgb(236, 236, 207);
+    min-height: 400px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+    align-items: center;
+}
+.box{
+    width: 180px;
+    height: 180px;
+    background-color: blue;
+    border: 2px solid white;
+}
+.box2{
+    flex-grow: 1;
+}
+.box3{
+    flex-grow: 1;
+}
+.container{
+    display: flex;
+    /* flex-direction: column; */ /*default is row in flex */
+}
+p{
+    padding: 10px;
+}
+.para1{
+    background-color: aqua;
+    flex: 1;
+    order: 1;
+}
+.para2{
+    background-color: burlywood;
+    flex: 1;
+    order: 3;
+}
+.para3{
+    background-color: darkolivegreen;
+    flex: 1;
+    order: 2;
+}
+@media all and  (min-width:801px){
+    .container p{
+        width: 30%;
+        float: left;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,49 @@
+.square{
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    transition-duration:1s ;
+    /* ease-in:starting will be slow and ending is fast  ease-out;vice versa*/
+    /* transition-timing-function: ease-in; */
+    /* transition: all 3s 2s linear; */
+    transition-timing-function: cubic-bezier(0.01, 0.68, 0.99, 1.4);
+}
+.square:hover{
+    /* background-color:violet;
+    width: 500px; */
+    transform:rotate(180deg) ;
+    transform:rotatex(180deg) ;
+    /* transform:rotatey(180deg) ;
+    transform:rotatez(180deg) ; */
+}
+.box{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color:chocolate;
+    position: relative;
+    animation-name: circle;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 2;
+}
+@keyframes circle {
+    100%{
+        background-color: rebeccapurple;
+        width: 200px;
+        height: 200px;
+        left: 500px;
+        top: 500px;
+    }
+    50%{
+        border-radius: 10px;
+        background-color: chocolate;
+        left: 250px;
+        top: 250px;
+    }
+    0%{
+        background-color: rebeccapurple;
+        left: 0px;
+        top: 0px;
+    }
+}

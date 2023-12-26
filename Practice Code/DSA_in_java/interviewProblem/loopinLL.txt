@@ -1,0 +1,66 @@
+You are given a head of the linked list You need to find a whether there is a loop in the list
+hint : FLOYD'S CYCLE FINDING ALGORITHM
+OUTPUT: Return boolean  OR Return loop node OR Remove the loop
+
+SLOW AND FAST METHOD
+
+// tortoise jump=length of the cycle OR multiples of length of cycle   
+to meet the tortoise and rabit
+//
+
+CODE:
+
+public class solution{
+    public boolean hasCycle(ListNode head){     
+        ListNode slow=head,fast=head;
+        while( fast!=null && fast.next!=null ){
+            slow=slow.next;
+            fast=fast.next.next;
+
+            if(slow==fast){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public ListNode detectCycle(ListNode head){     
+        ListNode slow=head,fast=head;
+        while( fast!=null && fast.next!=null ){
+            slow=slow.next;
+            fast=fast.next.next;
+
+            if(slow==fast){
+                slow=head;
+                while( slow!=fast ){
+                    slow=slow.next;
+                    fast=fast.next;
+                }
+                return slow;
+            }
+        }
+        return null;
+    }
+
+
+    public ListNode removeCycle(ListNode head){     
+        ListNode slow=head,fast=head,prev;
+        while( fast!=null && fast.next!=null ){
+            slow=slow.next;
+            fast=fast.next.next;
+
+            if(slow==fast){
+                slow=head;
+                while( slow!=fast ){
+                    prev=fast;
+                    slow=slow.next;
+                    fast=fast.next;
+                }
+                prev.next=null;
+                return head;
+            }
+        }
+        return head;
+    }
+}

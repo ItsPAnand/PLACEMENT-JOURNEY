@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forms</title>
+</head>
+<body>
+    <form action="signUp.html" method="GET" enctype="multipart/form-data">
+        <div>
+            <label for="Username">Phone No or Email ID</label>
+            <input type="text" name="Username" id="Username" placeholder="Username" required>
+        </div>
+        <div>
+            <label for="number">Enter Phone No</label>
+            <input type="tel" id="number" maxlength="10" minlength="10" placeholder="Mobile No" required>
+        </div>
+        <div>
+            <label for="Email">Enter Email Id</label>
+            <input type="email" name="Email Id" id="Email">
+        </div>
+        <div>
+            <label for="dateOfBirth">Year of birth</label>
+            <input type="date" id="dateOfBirth" placeholder="Date of birth" required>
+        </div>
+        <div>
+            <label for="Password">Password</label>
+            <input type="password" name="Password" id="Password" placeholder="Password" minlength="6" required>
+        </div>
+        <div>
+            <label for="text">About you</label>
+            <textarea name="text" id="text" cols="20" rows="5"></textarea>
+        </div>
+        <div>
+            <input type="checkbox" name="checkbox" id="Remember">
+            <label for="Remember">Remember me</label>
+        </div>
+        <div>
+            <input type="radio" name="gender" id="male" value="male" required>
+            <label for="male">Male</label>
+        </div>
+        <div>
+            <input type="radio" name="gender" id="female" value="female" required>
+            <label for="female">Female</label>
+        </div>
+        <select name="state" id="state" required
+        >
+            <option value="Andhara Pardhesh" label="Andhara Pradhesh"></option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+        </select>
+        <div>
+            <label for="file">Resume</label>
+            <input type="file" name="file" id="file" >
+        </div>
+
+        <button type="submit">Log In</button>
+        <button type="reset">Reset</button>
+        
+    </form>
+</body>
+</html>

@@ -1,0 +1,57 @@
+body{
+    background-image: url("/media/sign\ up\ background.png");
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.RegForm{
+    width: 500px;
+    margin: 250px auto;
+    padding: 10px 20px 30px;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: whitesmoke;
+    border-radius: 30px;
+}
+
+.RegForm h3{
+    text-align: center;
+    color: aqua;
+}
+
+.RegForm .txtBox{
+    display: block;
+}
+
+.RegForm .input input{
+    width: 100%;
+    font-size: 1.2em;
+    border: 2px solid violet;
+    border-radius: 10px;
+    padding: 15px 15px;
+    box-sizing: border-box;
+    margin: 5px 0px 15px;
+}
+
+input:focus{
+    background-color: rgba(100, 34, 100, 0.418);
+}
+
+.button{
+    text-align: center;
+}
+
+button{
+    font-size: 1.5em;
+    color: whitesmoke;
+    border: 2px solid rgba(250, 5, 5, 0.432);
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: rgb(134, 37, 134);
+    padding: 10px 20px;
+    box-shadow: 10px 10px 15px palevioletred;
+}
+
+.radio input{
+    accent-color: rgba(163, 47, 138, 0.89);
+    transform: scale(1.7);
+}

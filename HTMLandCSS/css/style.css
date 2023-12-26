@@ -1,0 +1,33 @@
+body{
+    color: darkolivegreen;
+}
+h1{
+    color: red;
+    text-align: center;
+}
+p{
+    color:darkblue;
+}
+h2,h3{
+    color: blueviolet !important;
+}
+/* ID selector */
+#itsme{
+    text-decoration:underline;
+    color: chocolate;
+}
+/* class selector*/
+.demo{
+    color:black;
+    text-decoration:underline;
+    text-align: center;
+}
+/* child slector */
+div>p{
+    color:black;
+    text-transform: uppercase;
+    text-decoration:dashed;
+}
+div a{
+    color:red ;
+}

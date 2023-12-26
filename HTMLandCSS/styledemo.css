@@ -1,0 +1,90 @@
+h3{
+    color: aqua;
+    color: rgb(0, 0, 0);
+    background-color: rgba(238, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    word-spacing: 0.5em;
+    border: 5px solid black;
+}
+body{
+    font-family: cursive;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-family: fantasy; */
+    font-size: large;
+    font-size: 75%;
+    font-size: 2em;
+    font-weight:500;
+    font-style: italic;
+    font-stretch: extra-expanded;
+    text-transform: uppercase;
+    text-transform: none;
+}
+
+.paragraph{
+    font-family: serif;
+    line-height: 1.5em;
+    text-align: justify;
+    text-indent: 50px;
+    text-shadow: 6px 6px 3px rgb(91, 99, 99);
+    background-color: rgb(109, 230, 145);
+    width: 75%;
+    /* max-height: 500px;
+    overflow: scroll; */
+    /* border: 2px solid black; */
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px 10px 10px 10px;
+    margin: 30px auto 30px auto;
+    /* border: 1px solid black;
+    border-radius: 80px 50px;
+    -moz-border-radius:80px 50px;
+    -webkit-border-radius:80px 50px;
+    box-shadow:20px 20px 40px gray; */
+    border: 20px solid;
+    border-image: url("/media/border.png" ) 65 stretch;
+    
+}
+
+.navigation>ul>li{
+    display: inline-block;
+    margin: 10px;
+}
+
+.paragraph:first-letter{
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.paraDiv{
+    border: 2px solid blue;
+    min-width: 800px;
+    max-width: 1500px;
+}
+
+li{
+    color: blue;
+}
+a:visited{
+    color: gray;
+}
+a:link{
+    color: blue;
+    border: 1px solid black;
+}
+a:hover{
+    color: red;
+}
+a:focus{
+    color: red;
+}
+a:active{
+    color: black;
+}
+
+p[class]{
+    color: aqua;
+    color: black;
+}
+

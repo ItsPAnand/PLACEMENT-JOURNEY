@@ -1,0 +1,7 @@
+.box{
+    height: 400px;
+    width: 400px;
+    margin: auto;
+    background: radial-gradient(blue,yellow);
+    background: linear-gradient(yellow,red,blue);
+}

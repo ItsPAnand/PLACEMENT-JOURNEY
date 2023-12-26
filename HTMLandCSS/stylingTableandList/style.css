@@ -1,0 +1,47 @@
+ul{
+    list-style-type: circle;
+    list-style-image: url("/media/star.gif") image-set();
+}
+
+ol{
+    list-style-type: lower-roman;
+}
+
+li{
+    margin: 10px;
+}
+
+#last{
+    margin-bottom: 50px;
+}
+
+table{
+    width: 500px;
+    margin: auto;
+    border: 4px solid black;
+    border-spacing: 5px 5px;
+    border-radius: 20px 20px;
+}
+
+th{
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    padding: 5px;
+}
+
+td{
+    padding: 5px;
+}
+
+.amt{
+    text-align: right;
+}
+
+tr:nth-child(even){
+    background-color: gray;
+}
+
+tr:nth-child(odd){
+    background-color: salmon;
+}

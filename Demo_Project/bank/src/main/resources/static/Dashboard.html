@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dash.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;">Account Details</h1>
+        <div class="savings">          
+            <div>
+                <span>
+                    Acccount number : 
+                </span>
+                <span id="accno"></span>
+            </div>
+            <div>
+                <span>
+                    Acccount id : 
+                </span>
+                <span id="accid"></span>
+            </div>
+            
+        </div>
+        <div class="savings">
+            <span>
+                Savings Balance : 
+            </span>
+            <span id="savings_balance"></span>
+        </div>
+        <div class="deposit">
+            <div>
+                <span>
+                    Deposit Balance : 
+                </span>
+                <span id="deposit_balance"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        async function onPageLoad(){
+            try {
+                const fetchRes = fetch(`http://localhost:5600/getSavingsAccountDetails?accid=${sessionStorage["accId"]}`);
+                const fetchRes2 = fetch(`http://localhost:5600/getDepositAccountDetails?accid=${sessionStorage["accId"]}`);
+                
+                let res = await Promise.all([fetchRes, fetchRes2]);
+
+                console.log(res);
+
+                document.getElementById("accid").innerHTML = sessionStorage["accId"];
+                document.getElementById("accno").innerHTML = sessionStorage["accno"];
+
+                try {
+                    const jsonRes = await res[0].json();
+                    document.getElementById("savings_balance").innerHTML = jsonRes["balance"];
+                } catch (error) {
+                    document.getElementById("savings_balance").innerHTML = "0.00";
+                }
+                
+                try {
+                    const jsonRes2 = await res[1].json();
+                    document.getElementById("deposit_balance").innerHTML = jsonRes2["balance"];
+                } catch (error) {
+                    document.getElementById("deposit_balance").innerHTML = "0.00";
+                }
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        onPageLoad();
+
+    </script>
+
+</body>
+</html>

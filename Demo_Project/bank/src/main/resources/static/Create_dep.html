@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Deposit account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Create Deposit account</h2><br><br>
+    <form>
+        <label for="acc_id">Account id:</label>
+        <input type="number" name="acc_id" id="acc_id" disabled><br><br>
+        <label for="pan">PAN Number:</label>
+        <input type="text" id="pan" name="pan" disabled><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" disabled>
+        <button type="submit">Send OTP</button><br><br>
+        <label for="otp">Enter OTP:</label>
+        <input type="text" id="otp" name="otp"><br><br><br><br>
+
+        <button type="submit">CREATE</button>
+    </form>
+    <script>
+        function onPageOnload(){
+            if(!sessionStorage["accId"] || !sessionStorage["pan"] || !sessionStorage["email"]){
+                // Error
+                return;
+            }
+            document.getElementById("acc_id").value = sessionStorage["accId"];
+            document.getElementById("pan").value = sessionStorage["pan"];
+            document.getElementById("email").value = sessionStorage["email"];
+        }
+
+        onPageOnload();
+
+        function validateAccountID(acc_id){
+            const regex=/[0-9]{6}/;
+            return regex.test(acc_id);
+        }
+
+        function validatePAN(pan) {
+            const regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}/;
+            return regex.test(pan);
+        }
+
+        function formatDate(date) {
+            let d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+            if (month.length < 2) 
+                month = '0' + month;
+            if (day.length < 2) 
+                day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+        
+        const form =document.querySelector('form');
+        const acc_id_inp=document.querySelector('#acc_id')
+        const panInput = document.querySelector('#pan');
+        form.addEventListener('submit',async function(event){
+            event.preventDefault();
+            const panValue = panInput.value;
+            const acc_val=acc_id_inp.value;            
+            // if(!validateAccountID(acc_val)){
+            //     alert('Please enter valid account ID');
+            //     return;
+            // }
+            // if (!validatePAN(panValue)) {
+            //     alert('Please enter a valid PAN number.');
+            //     return;
+            // }
+            try {
+                const fetchRes = await fetch("http://localhost:5600/addDepositAccount", {
+                    'body' : JSON.stringify({
+                        "accid" : acc_id_inp.value,
+                        "balance" : 5000,
+                        "date" : formatDate(new Date().toString())
+                    }),
+                    'method' : 'POST',
+                    'headers' : {
+                        'Content-Type' : 'application/json'
+                    }
+                });
+                window.location.href = "./Account_page.html";
+            } catch (error) {
+                console.error(error);
+            }            
+        });
+    </script>
+</body>
+</html>

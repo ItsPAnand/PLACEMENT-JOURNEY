@@ -1,0 +1,31 @@
+body {
+    background-color: #222;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .savings,
+  .deposit {
+    border: 1px solid #b031eb;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  span {
+    font-weight: bold;
+  }
+  
+  #accno,
+  #accid,
+  #savings_balance,
+  #deposit_balance {
+    color: #00ff00;
+  }
+  
+  

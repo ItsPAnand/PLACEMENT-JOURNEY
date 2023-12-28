@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Savings account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Create Savings account</h2><br><br>
+    <form>
+        <label for="acc_id">Account id:</label>
+        <input type="number" name="acc_id" id="acc_id"><br><br>
+        <label for="pan">PAN Number:</label>
+        <input type="text" id="pan" name="pan"><br>
+        <label for="mobile">Email:</label>
+        <input type="email" id="email" name="email">
+        <button type="submit">Send OTP</button><br><br>
+        <label for="otp">Enter OTP:</label>
+        <input type="text" id="otp" name="otp"><br><br><br><br>
+        <label for="balance">Enter Balance:</label>
+        <input type="text" id="balance" name="balance" required><br><br><br><br>
+
+        <button type="submit">CREATE</button>
+    </form>
+    <script>
+
+        function onPageOnload(){
+            if(!sessionStorage["accId"] || !sessionStorage["pan"] || !sessionStorage["email"]){
+                // Error
+                return;
+            }
+            document.getElementById("acc_id").value = sessionStorage["accId"];
+            document.getElementById("pan").value = sessionStorage["pan"];
+            document.getElementById("email").value = sessionStorage["email"];
+        }
+
+        onPageOnload();
+
+
+
+        function validateAccountID(acc_id){
+            const regex=/[0-9]{6}/;
+            return regex.test(acc_id);
+        }
+        function validatePAN(pan) {
+            const regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}/;
+            return regex.test(pan);
+        }
+        const form =document.querySelector('form');
+        const acc_id_inp=document.querySelector('#acc_id')
+        const panInput = document.querySelector('#pan');
+        const balance = document.querySelector("#balance");
+
+        form.addEventListener('submit',async function(event){
+            event.preventDefault();
+            const panValue = panInput.value;
+            const acc_val=acc_id_inp.value;
+            if(!validateAccountID(acc_val)){
+                alert('Please enter valid account ID');
+                return;
+            }
+            if (!validatePAN(panValue)) {
+                alert('Please enter a valid PAN number.');
+                return;
+            }
+
+            try {
+                const fetchResult = await fetch("http://localhost:5600/addSavingsAccount", {
+                    'method' : 'POST',
+                    'headers' : {
+                        'Content-Type' : "application/json"
+                    },
+                    'body' : JSON.stringify({
+                        "accid" : acc_id_inp.value, 
+                        "accno" : sessionStorage["accno"], 
+                        "balance" : balance.value
+                    })
+                });
+                window.location.href = "./Account_page.html";
+            } catch (error) {
+                console.error(error);
+            }
+
+
+            // this.submit();
+        });
+    </script>
+</body>
+</html>

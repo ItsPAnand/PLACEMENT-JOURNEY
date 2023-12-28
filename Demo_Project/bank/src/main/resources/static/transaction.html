@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Savings account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Make transaction with Another account</h2><br><br>
+    <form>
+        <label for="name">Receiver Account holder name: </label>
+        <input type="text" name="name" id="name"><br><br>
+        <label for="accid">Receiver Account ID: </label>
+        <input type="text" name="accid" id="accid"><br><br>
+        <label for="accno">Receiver Account no: </label>
+        <input type="text" name="accno" id="accno"><br><br>
+        <label for="amount">Amount to be transferred: </label>
+        <input type="text" name="amount" id="amount"><br><br>
+        <span>Account type: </span>
+        <input type="radio" name="account_type" checked>
+        <span>savings</span>
+        <input type="radio" name="account_type">
+        <span>Deposit</span><br><br><br>
+        <button type="submit" id="paybtn">PAY</button>
+    </form>
+</body>
+<script>
+    const btn = document.getElementById("paybtn");
+    btn.onclick = async (ev) => {
+        ev.preventDefault();
+        const name = document.getElementById("name").value;
+        const accid = document.getElementById("accid").value;
+        const accno = document.getElementById("accno").value;
+        const amount = document.getElementById("amount").value;
+        let acctype = document.getElementsByName("account_type");
+        
+        try {
+            
+            acctype = (acctype && acctype[0].checked) ? "savings" : "deposit"; 
+            
+            const isOkayTransactFetch = await fetch(`http://localhost:5600/isOkay?accid=${sessionStorage["accId"]}&recieverId=${accid}&amount=${amount}&fromAccType=${acctype}`);
+            const isOkayTransactFetchRes = await isOkayTransactFetch.text();
+            if (isOkayTransactFetchRes === "success") {
+                const data = { name, accid, accno, amount };
+                console.log(data);
+                // -- const amountAddedFetch = await fetch(`http://localhost:5600/addSavingsAmountAdd?accid=${accid}&amount=${amount}`);
+                const fetchRes = await fetch("http://localhost:5600/addTransactionHistory", {
+                    'method' : 'POST',
+                    'body' : JSON.stringify(data),
+                    'headers' : {
+                        'Content-Type' : 'application/json'
+                    }
+                }); 
+                const textRes = await fetchRes.text();
+                console.log(textRes);
+            }
+            else if (isOkayTransactFetchRes === "insufficient balance") {
+                alert("Insufficient balance");
+            }
+            else if (isOkayTransactFetchRes === "Account not found") {
+                alert("Reciever Account not found");
+            }
+        } catch (error) {
+            alert(error);
+        }
+
+    }
+</script>
+</html>

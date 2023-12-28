@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="savings">
+            <div>
+                <span>
+                    Acccount number : 
+                </span>
+                <span id="accno"></span>
+            </div>
+            <div>
+                <span>
+                    Acccount id : 
+                </span>
+                <span id="accid"></span>
+            </div>
+            <div>
+                <span>
+                    Savings Balance : 
+                </span>
+                <span id="savings_balance"></span>
+            </div>
+        </div>
+        
+        <div class="deposit">
+            <div>
+                <span>
+                    Deposit Balance : 
+                </span>
+                <span id="deposit_balance"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        async function onPageLoad(){
+            try {
+                const fetchRes = await fetch(`http://localhost:5600/getSavingsAccountDetails?accid=${sessionStorage["accId"]}`);
+                const jsonRes = await fetchRes.json();
+
+                if (!jsonRes) {
+                    // Error
+                    return;
+                }
+
+                console.log(jsonRes);
+                document.getElementById("accid").innerHTML = jsonRes["accid"];
+                document.getElementById("accno").innerHTML = jsonRes["accno"];
+                document.getElementById("savings_balance").innerHTML = jsonRes["balance"];
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        onPageLoad();
+
+    </script>
+
+</body>
+</html>

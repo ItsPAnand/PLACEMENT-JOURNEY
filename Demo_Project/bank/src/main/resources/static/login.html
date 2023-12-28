@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Bank Customer Login</h2><br><br>
+    <form>
+        <label for="choose">Choose User Type:</label><br><br>
+        <input type="radio" name="usertype" id="customer">
+        <label for="customer">Customer</label><br>
+        <input type="radio" name="usertype" id="admin">
+        <label for="admin">Admin</label><br><br>
+        <label for="acc_id">Account id:</label>
+        <input type="number" name="acc_id" id="acc_id"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password"><br><br>
+        <button type="submit">LOGIN</button>
+        <a href='register.html'>sign up? new user</a>
+    </form>
+    <script>
+        function validateAccountID(acc_id){
+            const regex=/[0-9]{6}/;
+            return regex.test(acc_id);
+        }
+        const form =document.querySelector('form');
+        const acc_id_inp=document.querySelector('#acc_id');
+        form.addEventListener('submit', async function(event){
+            event.preventDefault();
+            const acc_val=acc_id_inp.value;
+            if(!validateAccountID(acc_val)){
+                alert('Please enter valid account ID');
+                return;
+            }
+            // if(validateAccountID(acc_val)==true){
+            //     window.location="Account_page.html";
+            // }
+            // this.submit();
+            console.log("started!");
+            const fetchResult = await fetch("http://localhost:5600/validateLogin", {
+                'method' : 'POST',
+                'headers' : {
+                    'Content-Type' : 'application/json'
+                },
+                'body' : JSON.stringify({ 
+                    "accId" : acc_id_inp.value
+                 })
+            });
+            
+            sessionStorage["accId"] = acc_id_inp.value;
+            console.log(fetchResult);
+            const textResult = await fetchResult.text();
+            if (textResult === 'success') {
+                location.href = "Account_page.html"
+            }
+            else{
+                alert("Login failed!")
+            }
+        });
+    </script>
+</body>
+</html>

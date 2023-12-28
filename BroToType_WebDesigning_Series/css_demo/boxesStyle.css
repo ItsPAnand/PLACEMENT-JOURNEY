@@ -1,0 +1,36 @@
+#outer-box{
+    width: 800px;
+    height: 600px;
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    /* gap: 20px; */
+    justify-content: center;        /*left right alignment*/
+    align-items: center;            /*top bottom alignment*/
+}
+
+.boxes{
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+}
+
+/* Id element is top priority
+next class element */
+
+#box1{
+    background-color: red;
+    /* float: left; */
+}
+#box2{
+    background-color: orange;
+    /* float: right; */
+}
+#box3{
+    background-color: green;
+    
+}
+#box4{
+    background-color: blue;
+}

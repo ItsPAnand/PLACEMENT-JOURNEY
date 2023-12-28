@@ -1,0 +1,18 @@
+h1{
+    background-color: black;
+    color: burlywood;
+}
+/* p{
+    font-size: 20px;
+    color: blue;
+    background-color: rgb(255, 0, 0);
+    border: 3px solid blue;
+    border-radius: 6px;
+} */
+#para1{     /* id selector */
+    color: gold;
+}
+
+.commonPara{
+    color: pink;
+}

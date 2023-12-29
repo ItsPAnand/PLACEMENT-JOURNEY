@@ -1,0 +1,40 @@
+$(document).ready(function(){
+    $('#signUp').validate({
+        rules:{
+            fname:{
+                required:true,
+                minlength:3,
+            },
+            sname:{
+                required:true,
+                minlength:3,
+            },
+            mobilenumber:{
+                required:true,
+                minlength:10,
+            },
+            password:{
+                required:true,
+                minlength:8,
+            },
+            day:{
+                required:true,
+            },
+            month:{
+                required:true,
+            },
+            year:{
+                required:true,
+            },
+            gender:{
+                required:true,
+            }
+        },
+        messages:{
+            fname:{
+                required:"Please enter first name",
+                minlength:"please enter minimum 3 letters"
+            }
+        }
+    })
+});

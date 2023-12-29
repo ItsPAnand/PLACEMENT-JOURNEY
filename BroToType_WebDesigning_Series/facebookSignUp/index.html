@@ -14,7 +14,7 @@
 <body>
     <div class="main-div">
         <h1 id="logo">facebook</h1>
-        <form action="">
+        <form action="" id="signUp">
             <div class="signup-form">
                 <div class="form-heading">
                     <h2>Create a new account</h2>
@@ -22,75 +22,85 @@
                 </div>
                 <div class="input-fields">
                     <div class="half-width">
-                        <input type="text" placeholder="First name">
+                        <input type="text" placeholder="First name" name="fname">
                     </div>
                     <div class="half-width">
-                        <input type="text" placeholder="Surname">
+                        <input type="text" placeholder="Surname" name="sname">
                     </div>
                     <div class="full-width">
-                        <input type="number" placeholder="Mobile number">
+                        <input type="number" placeholder="Mobile number" name="mobilenumber">
                     </div>
                     <div class="full-width">
-                        <input type="password" placeholder="New password">
+                        <input type="password" placeholder="New password" name="password">
                     </div>
-                    <label for="">Date of birth</label>
+                    <label>Date of birth</label>
                     <div class="dob-div">
                         <div class="quad-width">
-                            <select>
-                                <option>Date</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
-                                <option>20</option>
-                                <option>21</option>
-                                <option>22</option>
-                                <option>23</option>
-                                <option>24</option>
-                                <option>25</option>
-                                <option>26</option>
-                                <option>27</option>
-                                <option>28</option>
-                                <option>29</option>
-                                <option>30</option>
-                                <option>31</option>
+                            <select name="day">
+                                <option value="">Date</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
                             </select>
                         </div>
                         <div class="quad-width">
-                            <select>
-                                <option>Month</option>
-                                <option>Jan</option>
-                                <option>Feb</option>
-                                <option>Mar</option>
-                                <option>Apr</option>
-                                <option>May</option>
-                                <option>Jun</option>
-                                <option>Jul</option>
-                                <option>Aug</option>
-                                <option>Sep</option>
-                                <option>Oct</option>
-                                <option>Nov</option>
-                                <option>Dec</option>
+                            <select name="month">
+                                <option value="">Month</option>
+                                <option value="jan" >Jan</option>
+                                <option value="feb" >Feb</option>
+                                <option value="mar" >Mar</option>
+                                <option value="apr" >Apr</option>
+                                <option value="may" >May</option>
+                                <option value="jun" >Jun</option>
+                                <option value="jul" >Jul</option>
+                                <option value="aug" >Aug</option>
+                                <option value="sep" >Sep</option>
+                                <option value="oct" >Oct</option>
+                                <option value="nov" >Nov</option>
+                                <option value="dec" >Dec</option>
                             </select>
                         </div>
                         <div class="quad-width">
-                            <select>
-                                <option>Year</option>
+                            <select name="year">
+                                <option value="">Year</option>
+                                <option value="1999">1999</option>
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                                <option value="2005">2005</option>
+                                <option value="2006">2006</option>
+                                <option value="2007">2007</option>
+                                <option value="2008">2008</option>
                             </select>
                         </div>
                     </div>
@@ -132,5 +142,7 @@
         </form>
     </div>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+<script src="/facebookSignUp/validation.js"></script>
 </html>

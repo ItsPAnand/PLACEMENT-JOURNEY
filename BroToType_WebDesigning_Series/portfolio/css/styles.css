@@ -1,0 +1,18 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url(/portfolio/images/astronaut-4106766_1920.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.banner{
+    /* background-image: url(/portfolio/images/background-portfolio.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; */
+    padding: 100px 0;
+}
+
+.about-para{
+    text-align: justify;
+    text-justify: inter-word;
+}

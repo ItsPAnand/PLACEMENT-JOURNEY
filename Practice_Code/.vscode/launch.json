@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "convertAndToggleBinary",
+            "request": "launch",
+            "mainClass": "TCS_NQT_Coding.convertAndToggleBinary",
+            "projectName": "Practice_Code_b5e8e085"
+        },
+        {
+            "type": "java",
+            "name": "factorialWithoutMul",
+            "request": "launch",
+            "mainClass": "TCS_NQT_Coding.factorialWithoutMul",
+            "projectName": "Practice_Code_b5e8e085"
+        },
+        {
+            "type": "java",
+            "name": "StringMatrix",
+            "request": "launch",
+            "mainClass": "TCS_NQT_Coding.StringMatrix",
+            "projectName": "Practice_Code_b5e8e085"
+        },
+        {
+            "type": "java",
+            "name": "lowerTrianglarMatrixorNot",
+            "request": "launch",
+            "mainClass": "TCS_NQT_Coding.lowerTrianglarMatrixorNot",
+            "projectName": "Practice_Code_b5e8e085"
+        },
+        {
+            "type": "java",
             "name": "moveZeros",
             "request": "launch",
             "mainClass": "LeetCode.moveZeros",

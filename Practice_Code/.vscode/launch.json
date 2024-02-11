@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DaysBetweenDates",
+            "request": "launch",
+            "mainClass": "companyQuestions.DaysBetweenDates",
+            "projectName": "Practice_Code_b5e8e085"
+        },
+        {
+            "type": "java",
             "name": "convertAndToggleBinary",
             "request": "launch",
             "mainClass": "TCS_NQT_Coding.convertAndToggleBinary",
